@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Coffee Prompter </title>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Bungee+Shade&subset=latin-ext');
+		body {
+			margin: 0 auto;
+			margin-top: 100px;
+			width: 50%;
+			font-family: 'Bungee Shade', cursive;
+		}
+		h3 {
+			color: #f32121;
+			background: rgba(234, 7, 7, 0.54);
+			background-image: url('http://www.worldatlas.com/r/w728-h425-c728x425/upload/8c/05/57/coffee-cup.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: monospace;
+		}
+	</style>
+</head>
+<body>
+	<h1>JavaScript Cafe</h1>
+	<script>
+		/**
+		 * @author 			Layth Adan
+		 * 
+		 * @description 	a program that prompts the user to end the kind of coffee they want, 
+		 *              	the kind of milk they want (e.g. cream or steamed milk), and the kind 
+		 *              	of sweetener they want.
+		 *              	
+		 * @date 			26 October 2016
+		 *
+		 * @version 		1.0
+		 *
+		 *@license 			MIT 
+		 *
+		 * @changelog		-
+		 */
+		
+		/**
+		 * [The menu]
+		 * @type {Array with objects inside}
+		 */
+		var menu = [
+					{
+						drink: 'espresso',
+						price: 3.45
+					}, 
+					{
+						drink: 'mocha',
+						price: 3.13
+					},
+					{
+						drink: 'latte',
+						price: 3.54
+					},
+					{
+						condiment: 'milk',
+						price: .65
+					},
+					{
+						condiment: 'cream',
+						price: .67
+					}, 
+					{
+						condiment: 'sugar',
+						price: .64
+					}, 
+					{
+						codiment: 'vanilla',
+						price: .64
+					}
+				 ];
+		/**
+		 * [total is the total cost of cup of coffee]
+		 * @type {Number}
+		 */
+		var total = 0;
+		// prompt user for what type of coffee
+		var coffee = prompt("What type of coffee would like (mocha, latte, or espresso: ")
+		// prompt user whether they would like to make it sweet
+		var sweet = prompt("would you like to make it sweet?  (sugar or vanilla)");
+		// ask user if they would like cream or milk
+		var dairy = prompt("would you like to add cream or milk? (cream or milk)");
+		// Loop through the array
+		for (var i = 0; i < menu.length; i++) {
+			// match users choice
+			if(menu[i].drink === coffee) {
+				//  compute a total price for the drink based on the various options the user has for drinks and condiments
+				total += menu[i].price;
+			}
+			if(menu[i].condiment === sweet) {
+				total += menu[i].price;
+			}
+			if(menu[i].condiment === dairy) {
+				//  compute a total price for the drink based on the various options the user has for drinks and condiments
+				total += menu[i].price;
+			}
+		}
+		// Display the final price in the page
+		document.write('<h3>Total: $' + total.toFixed(2) + '</h3>')
+
+	</script>
+	</body>
+</html>
